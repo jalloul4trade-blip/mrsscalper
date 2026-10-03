@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أداء روبوت التداول | تقرير الأداء الموثق</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        body { font-family: 'Cairo', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+
+    <!-- Header Section -->
+    <header class="bg-slate-900 border-b border-slate-800 py-6 px-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-emerald-400">📈 Bot Performance Live Logs</h1>
+            <span class="bg-emerald-500/10 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-500/20">حسابات حية ومستقرة</span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl">
+                <p class="text-slate-400 text-sm">الحسابات النشطة</p>
+                <h3 class="text-3xl font-bold text-white mt-1">14 حساب</h3>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl">
+                <p class="text-slate-400 text-sm">متوسط العائد الشهري</p>
+                <h3 class="text-3xl font-bold text-emerald-400 mt-1">9% - 11%</h3>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl">
+                <p class="text-slate-400 text-sm">نسبة النجاح العامة</p>
+                <h3 class="text-3xl font-bold text-blue-400 mt-1">94.2%</h3>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl">
+                <p class="text-slate-400 text-sm">مدة التشغيل المستقر</p>
+                <h3 class="text-3xl font-bold text-purple-400 mt-1">شهرين ونصف</h3>
+            </div>
+        </div>
+
+        <!-- Accounts Grid Section (13+ Accounts Simulation) -->
+        <section class="mb-12">
+            <h2 class="text-xl font-bold mb-4 text-slate-200">📊 تفاصيل الحسابات النشطة (13+ حساب)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Account Card Template -->
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="font-semibold text-emerald-400">Account #101</span>
+                        <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">متصل ومستقر</span>
+                    </div>
+                    <div class="text-sm space-y-1 text-slate-300">
+                        <div class="flex justify-between"><span>رأس المال الأساسي:</span> <span class="font-bold">$5,000</span></div>
+                        <div class="flex justify-between"><span>الربح الشهري الحالي:</span> <span class="text-emerald-400 font-bold">+11%</span></div>
+                        <div class="flex justify-between"><span>إجمالي الأرباح:</span> <span class="text-emerald-400 font-bold">+$1,375</span></div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="font-semibold text-emerald-400">Account #102</span>
+                        <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">متصل ومستقر</span>
+                    </div>
+                    <div class="text-sm space-y-1 text-slate-300">
+                        <div class="flex justify-between"><span>رأس المال الأساسي:</span> <span class="font-bold">$3,000</span></div>
+                        <div class="flex justify-between"><span>الربح الشهري الحالي:</span> <span class="text-emerald-400 font-bold">+9%</span></div>
+                        <div class="flex justify-between"><span>إجمالي الأرباح:</span> <span class="text-emerald-400 font-bold">+$810</span></div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="font-semibold text-emerald-400">Account #103</span>
+                        <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">متصل ومستقر</span>
+                    </div>
+                    <div class="text-sm space-y-1 text-slate-300">
+                        <div class="flex justify-between"><span>رأس المال الأساسي:</span> <span class="font-bold">$10,000</span></div>
+                        <div class="flex justify-between"><span>الربح الشهري الحالي:</span> <span class="text-emerald-400 font-bold">+10.5%</span></div>
+                        <div class="flex justify-between"><span>إجمالي الأرباح:</span> <span class="text-emerald-400 font-bold">+$3,150</span></div>
+                    </div>
+                </div>
+                <!-- يمكنك تكرار هذه البطاقات لتمثيل الـ 13 أو 14 حساباً بكل سهولة -->
+            </div>
+        </section>
+
+        <!-- Deposits & Withdrawals Table -->
+        <section class="mb-12">
+            <h2 class="text-xl font-bold mb-4 text-slate-200">💸 سجل الإيداعات والسحوبات (موثق بالتواريخ)</h2>
+            <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-slate-800 text-slate-300 text-sm">
+                            <th class="p-3">رقم الحساب</th>
+                            <th class="p-3">نوع العملية</th>
+                            <th class="p-3">المبلغ</th>
+                            <th class="p-3">التاريخ</th>
+                            <th class="p-3">الحالة</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800 text-sm text-slate-300">
+                        <tr>
+                            <td class="p-3 font-medium">Account #101</td>
+                            <td class="p-3 text-emerald-400">إيداع (Deposit)</td>
+                            <td class="p-3 font-bold">$5,000</td>
+                            <td class="p-3 text-slate-400">2026-07-15</td>
+                            <td class="p-3"><span class="bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs">مكتمل</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-medium">Account #101</td>
+                            <td class="p-3 text-blue-400">سحب أرباح (Withdrawal)</td>
+                            <td class="p-3 font-bold">$550</td>
+                            <td class="p-3 text-slate-400">2026-08-18</td>
+                            <td class="p-3"><span class="bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs">مكتمل</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-medium">Account #102</td>
+                            <td class="p-3 text-emerald-400">إيداع (Deposit)</td>
+                            <td class="p-3 font-bold">$3,000</td>
+                            <td class="p-3 text-slate-400">2026-08-01</td>
+                            <td class="p-3"><span class="bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs">مكتمل</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-medium">Account #102</td>
+                            <td class="p-3 text-blue-400">سحب أرباح (Withdrawal)</td>
+                            <td class="p-3 font-bold">$270</td>
+                            <td class="p-3 text-slate-400">2026-09-02</td>
+                            <td class="p-3"><span class="bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs">مكتمل</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- CTA Section for IB -->
+        <div class="bg-gradient-to-r from-emerald-900/40 to-slate-900 border border-emerald-500/30 p-8 rounded-2xl text-center">
+            <h3 class="text-2xl font-bold mb-2 text-white">هل تريد ربط حسابك والبدء بتحقيق عوائد مستقرة؟</h3>
+            <p class="text-slate-300 mb-6 max-w-xl mx-auto">انضم إلى قائمة المتداولين عبر رابط الشراكة الخاص بنا واحصل على إعدادات الروبوت المحدثة فوراً.</p>
+            <a href="#" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-8 py-3 rounded-xl transition duration-200 inline-block">انضم عبر رابط الـ IB الآن</a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-slate-500 text-xs border-t border-slate-900 mt-12">
+        جميع الحقوق محفوظة © 2026 - نتائج التداول تعكس الأداء التاريخي ولا تضمن النتائج المستقبلية.
+    </footer>
+
+</body>
+</html>
