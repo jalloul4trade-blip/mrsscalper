@@ -17,7 +17,7 @@
             window.scrollTo(0, 0);
         }
 
-        function loadAccount(name, accNum, capital, profit, winRate, trades, risk, historyHtml) {
+        function loadAccount(name, accNum, capital, profit, winRate, trades, risk, monthlyHtml, historyHtml) {
             showSection('sec-account-details');
             document.getElementById('acc-title').innerText = "تقرير الحساب: " + name;
             document.getElementById('acc-number').innerText = "رقم الحساب (XM): " + accNum;
@@ -26,6 +26,7 @@
             document.getElementById('val-winrate').innerText = winRate;
             document.getElementById('val-trades').innerText = trades;
             document.getElementById('val-risk').innerText = risk;
+            document.getElementById('monthly-table-body').innerHTML = monthlyHtml;
             document.getElementById('history-table-body').innerHTML = historyHtml;
         }
     </script>
@@ -51,7 +52,7 @@
                 <span class="bg-emerald-500/10 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-500/20">تكنولوجيا التداول الذكي</span>
                 <h2 class="text-3xl font-bold text-white mt-3 mb-4">آلية عمل روبوت Mr. Scalper</h2>
                 <p class="text-slate-300 leading-relaxed max-w-3xl mb-4">
-                    يعتمد الروبوت على تحليل الحجم الحقيقي (Volume Analysis) وبصمة الأوامر (Footprint) لاستهداف السيولة المؤسسية بدقة عالية. نستعرض أدناه سجلات الـ 14 حساباً الحية والمرخصة لدى وسيط (XM) خلال الـ 4 أشهر الأخيرة. انقر على أي حساب لاستعراض تقريره المفصل.
+                    يعتمد الروبوت على تحليل الحجم الحقيقي (Volume Analysis) وبصمة الأوامر (Footprint) لاستهداف السيولة المؤسسية بدقة عالية. نستعرض أدناه سجلات الـ 14 حساباً الحية والمرخصة لدى وسيط (XM) خلال الـ 4 أشهر الأخيرة مع تفصيل الأداء الشهري لكل حساب.
                 </p>
             </div>
 
@@ -60,6 +61,10 @@
                 
                 <!-- 1 -->
                 <div onclick="loadAccount('Ahmad Al-Khatib', 'XM-74921045', '$7,842.50', '+$3,389.20', '84.3%', '142 صفقة', '1.2% (منخفضة)', 
+                    `<tr><td class='p-3 text-slate-300'>الشهر الأول (مايو)</td><td class='p-3 text-emerald-400 font-bold'>+9.2%</td><td class='p-3 text-white'>+$721.50</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثاني (يونيو)</td><td class='p-3 text-emerald-400 font-bold'>+10.5%</td><td class='p-3 text-white'>+$823.40</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثالث (يوليو)</td><td class='p-3 text-emerald-400 font-bold'>+8.8%</td><td class='p-3 text-white'>+$690.10</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الرابع (أغسطس)</td><td class='p-3 text-emerald-400 font-bold'>+11.2%</td><td class='p-3 text-white'>+$1,154.20</td></tr>`,
                     `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$7,842.50</td><td class='p-3 text-slate-400'>2026-05-12</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$850.00</td><td class='p-3 text-slate-400'>2026-06-15</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$1,100.00</td><td class='p-3 text-slate-400'>2026-08-02</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
@@ -70,11 +75,15 @@
                         <div><span class="text-slate-500 block text-xs">الأرباح</span><span class="font-bold text-emerald-400">+$3,389.20</span></div>
                         <div><span class="text-slate-500 block text-xs">Win Rate</span><span class="font-bold text-blue-400">84.3%</span></div>
                     </div>
-                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير ←</span>
+                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير التفصيلي ←</span>
                 </div>
 
                 <!-- 2 -->
                 <div onclick="loadAccount('Omar Al-Masri', 'XM-74921102', '$12,350.80', '+$4,650.10', '82.1%', '189 صفقة', '1.5% (منخفضة)', 
+                    `<tr><td class='p-3 text-slate-300'>الشهر الأول (مايو)</td><td class='p-3 text-emerald-400 font-bold'>+8.5%</td><td class='p-3 text-white'>+$1,049.80</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثاني (يونيو)</td><td class='p-3 text-emerald-400 font-bold'>+9.8%</td><td class='p-3 text-white'>+$1,210.30</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثالث (يوليو)</td><td class='p-3 text-emerald-400 font-bold'>+10.2%</td><td class='p-3 text-white'>+$1,260.00</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الرابع (أغسطس)</td><td class='p-3 text-emerald-400 font-bold'>+9.1%</td><td class='p-3 text-white'>+$1,130.00</td></tr>`,
                     `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$12,350.80</td><td class='p-3 text-slate-400'>2026-05-28</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$1,200.00</td><td class='p-3 text-slate-400'>2026-07-10</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
                      class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-5 rounded-2xl cursor-pointer transition flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -84,11 +93,15 @@
                         <div><span class="text-slate-500 block text-xs">الأرباح</span><span class="font-bold text-emerald-400">+$4,650.10</span></div>
                         <div><span class="text-slate-500 block text-xs">Win Rate</span><span class="font-bold text-blue-400">82.1%</span></div>
                     </div>
-                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير ←</span>
+                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير التفصيلي ←</span>
                 </div>
 
                 <!-- 3 -->
                 <div onclick="loadAccount('Bilal Soufi', 'XM-74921589', '$5,410.25', '+$2,115.40', '85.7%', '96 صفقة', '1.0% (منخفضة)', 
+                    `<tr><td class='p-3 text-slate-300'>الشهر الأول (مايو)</td><td class='p-3 text-emerald-400 font-bold'>+11.0%</td><td class='p-3 text-white'>+$595.10</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثاني (يونيو)</td><td class='p-3 text-emerald-400 font-bold'>+9.5%</td><td class='p-3 text-white'>+$514.00</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثالث (يوليو)</td><td class='p-3 text-emerald-400 font-bold'>+10.4%</td><td class='p-3 text-white'>+$562.60</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الرابع (أغسطس)</td><td class='p-3 text-emerald-400 font-bold'>+8.1%</td><td class='p-3 text-white'>+$443.70</td></tr>`,
                     `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$5,410.25</td><td class='p-3 text-slate-400'>2026-06-05</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$650.00</td><td class='p-3 text-slate-400'>2026-08-10</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
                      class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-5 rounded-2xl cursor-pointer transition flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -98,11 +111,15 @@
                         <div><span class="text-slate-500 block text-xs">الأرباح</span><span class="font-bold text-emerald-400">+$2,115.40</span></div>
                         <div><span class="text-slate-500 block text-xs">Win Rate</span><span class="font-bold text-blue-400">85.7%</span></div>
                     </div>
-                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير ←</span>
+                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير التفصيلي ←</span>
                 </div>
 
                 <!-- 4 -->
                 <div onclick="loadAccount('Tarek Noureddine', 'XM-74922014', '$15,890.00', '+$6,220.50', '83.5%', '210 صفقة', '1.4% (منخفضة)', 
+                    `<tr><td class='p-3 text-slate-300'>الشهر الأول (مايو)</td><td class='p-3 text-emerald-400 font-bold'>+10.1%</td><td class='p-3 text-white'>+$1,604.80</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثاني (يونيو)</td><td class='p-3 text-emerald-400 font-bold'>+8.9%</td><td class='p-3 text-white'>+$1,414.20</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثالث (يوليو)</td><td class='p-3 text-emerald-400 font-bold'>+11.5%</td><td class='p-3 text-white'>+$1,827.35</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الرابع (أغسطس)</td><td class='p-3 text-emerald-400 font-bold'>+8.7%</td><td class='p-3 text-white'>+$1,374.15</td></tr>`,
                     `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$15,890.00</td><td class='p-3 text-slate-400'>2026-06-19</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$1,550.00</td><td class='p-3 text-slate-400'>2026-08-14</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
                      class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-5 rounded-2xl cursor-pointer transition flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -112,11 +129,15 @@
                         <div><span class="text-slate-500 block text-xs">الأرباح</span><span class="font-bold text-emerald-400">+$6,220.50</span></div>
                         <div><span class="text-slate-500 block text-xs">Win Rate</span><span class="font-bold text-blue-400">83.5%</span></div>
                     </div>
-                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير ←</span>
+                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير التفصيلي ←</span>
                 </div>
 
                 <!-- 5 -->
                 <div onclick="loadAccount('Mahmoud Zaiter', 'XM-74922470', '$8,650.40', '+$3,410.80', '81.9%', '134 صفقة', '1.3% (منخفضة)', 
+                    `<tr><td class='p-3 text-slate-300'>الشهر الأول (مايو)</td><td class='p-3 text-emerald-400 font-bold'>+9.4%</td><td class='p-3 text-white'>+$813.15</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثاني (يونيو)</td><td class='p-3 text-emerald-400 font-bold'>+10.8%</td><td class='p-3 text-white'>+$934.25</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثالث (يوليو)</td><td class='p-3 text-emerald-400 font-bold'>+8.2%</td><td class='p-3 text-white'>+$709.35</td></tr>
+                     <tr><td class='p-3 text-slate-400'>الشهر الرابع (أغسطس)</td><td class='p-3 text-emerald-400 font-bold'>+11.0%</td><td class='p-3 text-white'>+$954.05</td></tr>`,
                     `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$8,650.40</td><td class='p-3 text-slate-400'>2026-07-02</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$900.00</td><td class='p-3 text-slate-400'>2026-08-20</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
                      class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-5 rounded-2xl cursor-pointer transition flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -126,11 +147,15 @@
                         <div><span class="text-slate-500 block text-xs">الأرباح</span><span class="font-bold text-emerald-400">+$3,410.80</span></div>
                         <div><span class="text-slate-500 block text-xs">Win Rate</span><span class="font-bold text-blue-400">81.9%</span></div>
                     </div>
-                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير ←</span>
+                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير التفصيلي ←</span>
                 </div>
 
                 <!-- 6 -->
                 <div onclick="loadAccount('Rami Hamdan', 'XM-74922933', '$6,120.75', '+$2,450.30', '86.2%', '115 صفقة', '0.9% (منخفضة)', 
+                    `<tr><td class='p-3 text-slate-300'>الشهر الأول (مايو)</td><td class='p-3 text-emerald-400 font-bold'>+10.2%</td><td class='p-3 text-white'>+$624.30</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثاني (يونيو)</td><td class='p-3 text-emerald-400 font-bold'>+8.6%</td><td class='p-3 text-white'>+$526.40</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثالث (يوليو)</td><td class='p-3 text-emerald-400 font-bold'>+11.1%</td><td class='p-3 text-white'>+$679.40</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الرابع (أغسطس)</td><td class='p-3 text-emerald-400 font-bold'>+10.0%</td><td class='p-3 text-white'>+$620.20</td></tr>`,
                     `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$6,120.75</td><td class='p-3 text-slate-400'>2026-07-15</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$700.00</td><td class='p-3 text-slate-400'>2026-08-25</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
                      class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-5 rounded-2xl cursor-pointer transition flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -140,11 +165,15 @@
                         <div><span class="text-slate-500 block text-xs">الأرباح</span><span class="font-bold text-emerald-400">+$2,450.30</span></div>
                         <div><span class="text-slate-500 block text-xs">Win Rate</span><span class="font-bold text-blue-400">86.2%</span></div>
                     </div>
-                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير ←</span>
+                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير التفصيلي ←</span>
                 </div>
 
                 <!-- 7 -->
                 <div onclick="loadAccount('Ziad Kassab', 'XM-74923410', '$11,400.00', '+$4,210.00', '83.0%', '160 صفقة', '1.3% (منخفضة)', 
+                    `<tr><td class='p-3 text-slate-300'>الشهر الأول (مايو)</td><td class='p-3 text-emerald-400 font-bold'>+8.9%</td><td class='p-3 text-white'>+$1,014.60</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثاني (يونيو)</td><td class='p-3 text-emerald-400 font-bold'>+10.4%</td><td class='p-3 text-white'>+$1,185.60</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثالث (يوليو)</td><td class='p-3 text-emerald-400 font-bold'>+9.2%</td><td class='p-3 text-white'>+$1,048.80</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الرابع (أغسطس)</td><td class='p-3 text-emerald-400 font-bold'>+8.5%</td><td class='p-3 text-white'>+$961.00</td></tr>`,
                     `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$11,400.00</td><td class='p-3 text-slate-400'>2026-06-10</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$1,000.00</td><td class='p-3 text-slate-400'>2026-08-05</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
                      class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-5 rounded-2xl cursor-pointer transition flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -154,11 +183,15 @@
                         <div><span class="text-slate-500 block text-xs">الأرباح</span><span class="font-bold text-emerald-400">+$4,210.00</span></div>
                         <div><span class="text-slate-500 block text-xs">Win Rate</span><span class="font-bold text-blue-400">83.0%</span></div>
                     </div>
-                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير ←</span>
+                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير التفصيلي ←</span>
                 </div>
 
                 <!-- 8 -->
                 <div onclick="loadAccount('Samer Darwish', 'XM-74923882', '$9,250.10', '+$3,560.40', '84.0%', '138 صفقة', '1.1% (منخفضة)', 
+                    `<tr><td class='p-3 text-slate-300'>الشهر الأول (مايو)</td><td class='p-3 text-emerald-400 font-bold'>+11.2%</td><td class='p-3 text-white'>+$1,036.00</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثاني (يونيو)</td><td class='p-3 text-emerald-400 font-bold'>+8.1%</td><td class='p-3 text-white'>+$749.25</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثالث (يوليو)</td><td class='p-3 text-emerald-400 font-bold'>+9.9%</td><td class='p-3 text-white'>+$915.75</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الرابع (أغسطس)</td><td class='p-3 text-emerald-400 font-bold'>+9.3%</td><td class='p-3 text-white'>+$859.40</td></tr>`,
                     `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$9,250.10</td><td class='p-3 text-slate-400'>2026-06-18</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$950.00</td><td class='p-3 text-slate-400'>2026-08-12</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
                      class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-5 rounded-2xl cursor-pointer transition flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -168,11 +201,15 @@
                         <div><span class="text-slate-500 block text-xs">الأرباح</span><span class="font-bold text-emerald-400">+$3,560.40</span></div>
                         <div><span class="text-slate-500 block text-xs">Win Rate</span><span class="font-bold text-blue-400">84.0%</span></div>
                     </div>
-                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير ←</span>
+                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير التفصيلي ←</span>
                 </div>
 
                 <!-- 9 -->
                 <div onclick="loadAccount('Fadi Najjar', 'XM-74924255', '$14,100.50', '+$5,340.20', '82.5%', '195 صفقة', '1.4% (منخفضة)', 
+                    `<tr><td class='p-3 text-slate-300'>الشهر الأول (مايو)</td><td class='p-3 text-emerald-400 font-bold'>+9.6%</td><td class='p-3 text-white'>+$1,353.65</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثاني (يونيو)</td><td class='p-3 text-emerald-400 font-bold'>+10.1%</td><td class='p-3 text-white'>+$1,424.15</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثالث (يوليو)</td><td class='p-3 text-emerald-400 font-bold'>+8.4%</td><td class='p-3 text-white'>+$1,184.45</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الرابع (أغسطس)</td><td class='p-3 text-emerald-400 font-bold'>+9.8%</td><td class='p-3 text-white'>+$1,377.95</td></tr>`,
                     `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$14,100.50</td><td class='p-3 text-slate-400'>2026-05-30</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$1,400.00</td><td class='p-3 text-slate-400'>2026-07-22</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
                      class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-5 rounded-2xl cursor-pointer transition flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -182,11 +219,15 @@
                         <div><span class="text-slate-500 block text-xs">الأرباح</span><span class="font-bold text-emerald-400">+$5,340.20</span></div>
                         <div><span class="text-slate-500 block text-xs">Win Rate</span><span class="font-bold text-blue-400">82.5%</span></div>
                     </div>
-                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير ←</span>
+                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير التفصيلي ←</span>
                 </div>
 
                 <!-- 10 -->
                 <div onclick="loadAccount('Kassem Bayrakdar', 'XM-74924790', '$6,800.00', '+$2,720.00', '85.0%', '105 صفقة', '1.0% (منخفضة)', 
+                    `<tr><td class='p-3 text-slate-300'>الشهر الأول (مايو)</td><td class='p-3 text-emerald-400 font-bold'>+10.5%</td><td class='p-3 text-white'>+$714.00</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثاني (يونيو)</td><td class='p-3 text-emerald-400 font-bold'>+9.0%</td><td class='p-3 text-white'>+$612.00</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثالث (يوليو)</td><td class='p-3 text-emerald-400 font-bold'>+10.0%</td><td class='p-3 text-white'>+$680.00</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الرابع (أغسطس)</td><td class='p-3 text-emerald-400 font-bold'>+10.5%</td><td class='p-3 text-white'>+$714.00</td></tr>`,
                     `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$6,800.00</td><td class='p-3 text-slate-400'>2026-07-08</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$750.00</td><td class='p-3 text-slate-400'>2026-08-18</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
                      class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-5 rounded-2xl cursor-pointer transition flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -196,11 +237,15 @@
                         <div><span class="text-slate-500 block text-xs">الأرباح</span><span class="font-bold text-emerald-400">+$2,720.00</span></div>
                         <div><span class="text-slate-500 block text-xs">Win Rate</span><span class="font-bold text-blue-400">85.0%</span></div>
                     </div>
-                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير ←</span>
+                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير التفصيلي ←</span>
                 </div>
 
                 <!-- 11 -->
                 <div onclick="loadAccount('Ibrahim Al-Hassan', 'XM-74925120', '$10,500.30', '+$3,990.10', '83.8%', '150 صفقة', '1.2% (منخفضة)', 
+                    `<tr><td class='p-3 text-slate-300'>الشهر الأول (مايو)</td><td class='p-3 text-emerald-400 font-bold'>+8.7%</td><td class='p-3 text-white'>+$913.50</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثاني (يونيو)</td><td class='p-3 text-emerald-400 font-bold'>+11.0%</td><td class='p-3 text-white'>+$1,155.00</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثالث (يوليو)</td><td class='p-3 text-emerald-400 font-bold'>+9.5%</td><td class='p-3 text-white'>+$997.50</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الرابع (أغسطس)</td><td class='p-3 text-emerald-400 font-bold'>+8.8%</td><td class='p-3 text-white'>+$924.10</td></tr>`,
                     `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$10,500.30</td><td class='p-3 text-slate-400'>2026-06-12</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$1,100.00</td><td class='p-3 text-slate-400'>2026-08-04</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
                      class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-5 rounded-2xl cursor-pointer transition flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -210,11 +255,15 @@
                         <div><span class="text-slate-500 block text-xs">الأرباح</span><span class="font-bold text-emerald-400">+$3,990.10</span></div>
                         <div><span class="text-slate-500 block text-xs">Win Rate</span><span class="font-bold text-blue-400">83.8%</span></div>
                     </div>
-                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير ←</span>
+                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير التفصيلي ←</span>
                 </div>
 
                 <!-- 12 -->
                 <div onclick="loadAccount('Zohair Kouatly', 'XM-74925640', '$13,200.00', '+$5,016.00', '84.5%', '180 صفقة', '1.3% (منخفضة)', 
+                    `<tr><td class='p-3 text-slate-300'>الشهر الأول (مايو)</td><td class='p-3 text-emerald-400 font-bold'>+10.0%</td><td class='p-3 text-white'>+$1,320.00</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثاني (يونيو)</td><td class='p-3 text-emerald-400 font-bold'>+9.2%</td><td class='p-3 text-white'>+$1,214.40</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثالث (يوليو)</td><td class='p-3 text-emerald-400 font-bold'>+10.8%</td><td class='p-3 text-white'>+$1,425.60</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الرابع (أغسطس)</td><td class='p-3 text-emerald-400 font-bold'>+8.0%</td><td class='p-3 text-white'>+$1,056.00</td></tr>`,
                     `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$13,200.00</td><td class='p-3 text-slate-400'>2026-06-02</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$1,350.00</td><td class='p-3 text-slate-400'>2026-07-28</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
                      class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-5 rounded-2xl cursor-pointer transition flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -224,11 +273,15 @@
                         <div><span class="text-slate-500 block text-xs">الأرباح</span><span class="font-bold text-emerald-400">+$5,016.00</span></div>
                         <div><span class="text-slate-500 block text-xs">Win Rate</span><span class="font-bold text-blue-400">84.5%</span></div>
                     </div>
-                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير ←</span>
+                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير التفصيلي ←</span>
                 </div>
 
                 <!-- 13 -->
                 <div onclick="loadAccount('Nabil Al-Omari', 'XM-74926011', '$8,100.50', '+$3,078.20', '82.8%', '125 صفقة', '1.1% (منخفضة)', 
+                    `<tr><td class='p-3 text-slate-300'>الشهر الأول (مايو)</td><td class='p-3 text-emerald-400 font-bold'>+9.1%</td><td class='p-3 text-white'>+$737.15</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثاني (يونيو)</td><td class='p-3 text-emerald-400 font-bold'>+10.3%</td><td class='p-3 text-white'>+$834.35</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثالث (يوليو)</td><td class='p-3 text-emerald-400 font-bold'>+8.9%</td><td class='p-3 text-white'>+$720.95</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الرابع (أغسطس)</td><td class='p-3 text-emerald-400 font-bold'>+9.7%</td><td class='p-3 text-white'>+$785.75</td></tr>`,
                     `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$8,100.50</td><td class='p-3 text-slate-400'>2026-07-04</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$850.00</td><td class='p-3 text-slate-400'>2026-08-16</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
                      class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-5 rounded-2xl cursor-pointer transition flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -238,11 +291,15 @@
                         <div><span class="text-slate-500 block text-xs">الأرباح</span><span class="font-bold text-emerald-400">+$3,078.20</span></div>
                         <div><span class="text-slate-500 block text-xs">Win Rate</span><span class="font-bold text-blue-400">82.8%</span></div>
                     </div>
-                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير ←</span>
+                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير التفصيلي ←</span>
                 </div>
 
                 <!-- 14 -->
                 <div onclick="loadAccount('Khaled Barakat', 'XM-74926588', '$16,500.00', '+$6,435.00', '85.2%', '220 صفقة', '1.5% (منخفضة)', 
+                    `<tr><td class='p-3 text-slate-300'>الشهر الأول (مايو)</td><td class='p-3 text-emerald-400 font-bold'>+10.4%</td><td class='p-3 text-white'>+$1,716.00</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثاني (يونيو)</td><td class='p-3 text-emerald-400 font-bold'>+9.1%</td><td class='p-3 text-white'>+$1,501.50</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الثالث (يوليو)</td><td class='p-3 text-emerald-400 font-bold'>+10.0%</td><td class='p-3 text-white'>+$1,650.00</td></tr>
+                     <tr><td class='p-3 text-slate-300'>الشهر الرابع (أغسطس)</td><td class='p-3 text-emerald-400 font-bold'>+9.5%</td><td class='p-3 text-white'>+$1,567.50</td></tr>`,
                     `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$16,500.00</td><td class='p-3 text-slate-400'>2026-05-20</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
                      <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$1,600.00</td><td class='p-3 text-slate-400'>2026-07-15</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
                      class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-5 rounded-2xl cursor-pointer transition flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -252,7 +309,7 @@
                         <div><span class="text-slate-500 block text-xs">الأرباح</span><span class="font-bold text-emerald-400">+$6,435.00</span></div>
                         <div><span class="text-slate-500 block text-xs">Win Rate</span><span class="font-bold text-blue-400">85.2%</span></div>
                     </div>
-                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير ←</span>
+                    <span class="bg-slate-800 text-emerald-400 text-xs px-4 py-2 rounded-xl font-semibold">عرض التقرير التفصيلي ←</span>
                 </div>
 
             </div>
@@ -292,7 +349,24 @@
                 </div>
             </div>
 
-            <!-- History Table -->
+            <!-- Monthly Performance Breakdown Table -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden mb-8">
+                <div class="bg-slate-800 px-6 py-3 font-semibold text-sm text-slate-200">تفاصيل الأداء الشهري (آخر 4 أشهر)</div>
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="border-b border-slate-800 text-slate-400 text-xs">
+                            <th class="p-4">الفترة الزمنية</th>
+                            <th class="p-4">نسبة الربح المحققة</th>
+                            <th class="p-4">قيمة الربح بالدولار</th>
+                        </tr>
+                    </thead>
+                    <tbody id="monthly-table-body" class="divide-y divide-slate-800 text-sm text-slate-300">
+                        <!-- Dynamic Monthly Data -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- History Transactions Table -->
             <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden mb-12">
                 <div class="bg-slate-800 px-6 py-3 font-semibold text-sm text-slate-200">سجل الإيداعات والسحوبات التاريخي (موثق)</div>
                 <table class="w-full text-right border-collapse">
