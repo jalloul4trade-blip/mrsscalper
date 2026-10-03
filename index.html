@@ -3,256 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mr. Scalper | تقرير الأداء الموثق للحسابات الحية</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Mr. Scalper | تقرير الأداء الموثق والحسابات الحية</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
         body { font-family: 'Cairo', sans-serif; }
     </style>
     <script>
-        function switchTab(tabId) {
-            document.getElementById('tab-accounts').classList.add('hidden');
-            document.getElementById('tab-transactions').classList.add('hidden');
-            
-            document.getElementById('btn-accounts').classList.remove('bg-emerald-500', 'text-slate-950', 'font-bold');
-            document.getElementById('btn-accounts').classList.add('bg-slate-900', 'text-slate-300');
-            
-            document.getElementById('btn-transactions').classList.remove('bg-emerald-500', 'text-slate-950', 'font-bold');
-            document.getElementById('btn-transactions').classList.add('bg-slate-900', 'text-slate-300');
+        function showSection(sectionId) {
+            document.getElementById('sec-home').classList.add('hidden');
+            document.getElementById('sec-account-details').classList.add('hidden');
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
 
-            document.getElementById(tabId).classList.remove('hidden');
-            document.getElementById('btn-' + tabId).classList.remove('bg-slate-900', 'text-slate-300');
-            document.getElementById('btn-' + tabId).classList.add('bg-emerald-500', 'text-slate-950', 'font-bold');
+        function loadAccount(name, accNum, capital, profit, winRate, trades, risk, historyHtml) {
+            showSection('sec-account-details');
+            document.getElementById('acc-title').innerText = "تقرير الحساب: " + name;
+            document.getElementById('acc-number').innerText = "رقم الحساب (XM): " + accNum;
+            document.getElementById('val-capital').innerText = capital;
+            document.getElementById('val-profit').innerText = profit;
+            document.getElementById('val-winrate').innerText = winRate;
+            document.getElementById('val-trades').innerText = trades;
+            document.getElementById('val-risk').innerText = risk;
+            document.getElementById('history-table-body').innerHTML = historyHtml;
         }
     </script>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen">
 
-    <!-- Header Section -->
-    <header class="bg-slate-900 border-b border-slate-800 py-6 px-4">
+    <!-- Header & Navigation -->
+    <header class="bg-slate-900 border-b border-slate-800 py-4 px-6 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-emerald-400">📈 Mr. Scalper Live Performance</h1>
-            <span class="bg-emerald-500/10 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-500/20">حسابات حقيقية موثقة (XM Broker)</span>
+            <h1 class="text-xl font-bold text-emerald-400 cursor-pointer" onclick="showSection('sec-home')">📈 Mr. Scalper Bot</h1>
+            
+            <nav class="flex space-x-6 space-x-reverse items-center">
+                <button onclick="showSection('sec-home')" class="text-slate-300 hover:text-emerald-400 transition font-medium">الرئيسية</button>
+                
+                <!-- Dropdown Menu for Accounts -->
+                <div class="relative group">
+                    <button class="bg-slate-800 text-slate-200 px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-1 border border-slate-700 hover:border-emerald-500 transition">
+                        <span>أداء الحسابات ▾</span>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl hidden group-hover:block py-2">
+                        <div class="px-4 py-1 text-xs text-slate-500 font-bold">الحسابات الحية (آخر 4 أشهر)</div>
+                        
+                        <a href="#" onclick="loadAccount('Ahmad Al-Khatib', 'XM-74921045', '$7,842.50', '+$3,389.20', '84.3%', '142 صفقة', '1.2% (منخفضة)', 
+                            `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$7,842.50</td><td class='p-3 text-slate-400'>2026-05-12</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
+                             <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$850.00</td><td class='p-3 text-slate-400'>2026-06-15</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
+                             <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$1,100.00</td><td class='p-3 text-slate-400'>2026-08-02</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
+                           class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition">Ahmad Al-Khatib ($7.8K)</a>
+                        
+                        <a href="#" onclick="loadAccount('Omar Al-Masri', 'XM-74921102', '$12,350.80', '+$4,650.10', '82.1%', '189 صفقة', '1.5% (منخفضة)', 
+                            `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$12,350.80</td><td class='p-3 text-slate-400'>2026-05-28</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
+                             <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$1,200.00</td><td class='p-3 text-slate-400'>2026-07-10</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
+                           class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition">Omar Al-Masri ($12.3K)</a>
+
+                        <a href="#" onclick="loadAccount('Bilal Soufi', 'XM-74921589', '$5,410.25', '+$2,115.40', '85.7%', '96 صفقة', '1.0% (منخفضة)', 
+                            `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$5,410.25</td><td class='p-3 text-slate-400'>2026-06-05</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
+                             <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$650.00</td><td class='p-3 text-slate-400'>2026-08-10</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
+                           class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition">Bilal Soufi ($5.4K)</a>
+
+                        <a href="#" onclick="loadAccount('Tarek Noureddine', 'XM-74922014', '$15,890.00', '+$6,220.50', '83.5%', '210 صفقة', '1.4% (منخفضة)', 
+                            `<tr><td class='p-3 text-emerald-400'>إيداع رأس مال</td><td class='p-3 font-bold'>$15,890.00</td><td class='p-3 text-slate-400'>2026-06-19</td><td class='p-3'><span class='bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>
+                             <tr><td class='p-3 text-blue-400'>سحب أرباح</td><td class='p-3 font-bold'>$1,550.00</td><td class='p-3 text-slate-400'>2026-08-14</td><td class='p-3'><span class='bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs'>مكتمل</span></td></tr>`)" 
+                           class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition">Tarek Noureddine ($15.8K)</a>
+                    </div>
+                </div>
+            </nav>
         </div>
     </header>
 
     <!-- Main Container -->
-    <main class="max-w-6xl mx-auto px-4 py-8">
+    <main class="max-w-6xl mx-auto px-6 py-10">
         
-        <!-- Stats Overview (Without duration) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl">
-                <p class="text-slate-400 text-sm">الحسابات النشطة المراقبة</p>
-                <h3 class="text-3xl font-bold text-white mt-1">14 حساباً</h3>
+        <!-- SECTION 1: HOME (About the Bot & Footprint / Volume Strategy) -->
+        <section id="sec-home">
+            <div class="bg-gradient-to-r from-emerald-950/40 to-slate-900 border border-emerald-500/20 p-8 rounded-3xl mb-12">
+                <span class="bg-emerald-500/10 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-500/20">تكنولوجيا التداول الذكي</span>
+                <h2 class="text-3xl font-bold text-white mt-3 mb-4">آلية عمل روبوت Mr. Scalper</h2>
+                <p class="text-slate-300 leading-relaxed max-w-3xl mb-6">
+                    يعتمد الروبوت في اتخاذ صفقاته على تحليل حركة الحجم الحقيقي في الأسواق (Volume Analysis) وبصمة الأوامر (Footprint Charts). لا نعتمد على العشوائية أو المؤشرات المتأخرة، بل نستهدف مناطق السيولة الحقيقية وأوامر المؤسسات الكبرى لاقتناص أهداف سعرية دقيقة بنسبة نجاح واقعية ومدروسة.
+                </p>
+                <button onclick="showSection('sec-account-details')" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-8 py-3 rounded-xl transition">
+                    استعرض الحسابات الحية الآن 📊
+                </button>
             </div>
-            <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl">
-                <p class="text-slate-400 text-sm">متوسط العائد الشهري</p>
-                <h3 class="text-3xl font-bold text-emerald-400 mt-1">9.2% - 11.4%</h3>
-            </div>
-            <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl">
-                <p class="text-slate-400 text-sm">نسبة النجاح المحققة</p>
-                <h3 class="text-3xl font-bold text-blue-400 mt-1">84.3%</h3>
-            </div>
-        </div>
 
-        <!-- Navigation Tabs -->
-        <div class="flex space-x-4 space-x-reverse mb-6 border-b border-slate-800 pb-4">
-            <button id="btn-tab-accounts" onclick="switchTab('tab-accounts')" class="bg-emerald-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl transition duration-200">
-                📊 أداء الحسابات والأرباح
-            </button>
-            <button id="btn-tab-transactions" onclick="switchTab('tab-transactions')" class="bg-slate-900 text-slate-300 px-6 py-2.5 rounded-xl border border-slate-800 transition duration-200">
-                💸 سجل الإيداعات والسحوبات
-            </button>
-        </div>
-
-        <!-- TAB 1: Accounts Performance -->
-        <section id="tab-accounts" class="mb-12">
-            <h2 class="text-xl font-bold mb-4 text-slate-200">تفاصيل الحسابات النشطة وعوائدها (تبدأ من $5,000 فما فوق)</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                
-                <!-- Account 1 -->
-                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="font-semibold text-emerald-400 text-sm">XM-74921045</span>
-                        <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">نشط ومستقر</span>
-                    </div>
-                    <div class="text-sm space-y-2 text-slate-300">
-                        <div class="flex justify-between"><span>رأس المال الأساسي:</span> <span class="font-bold text-white">$7,842.50</span></div>
-                        <div class="flex justify-between"><span>العائد الشهري الحالي:</span> <span class="text-emerald-400 font-bold">+10.8%</span></div>
-                        <div class="flex justify-between"><span>إجمالي الأرباح المحققة:</span> <span class="text-emerald-400 font-bold">+$3,389.20</span></div>
-                        <div class="flex justify-between text-xs text-slate-500 pt-1 border-t border-slate-800"><span>تاريخ فتح الحساب:</span> <span>2026-05-12</span></div>
-                    </div>
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                    <h3 class="text-emerald-400 font-bold text-lg mb-2">إدارة مخاطر صارمة</h3>
+                    <p class="text-slate-400 text-sm">كل حساب يدار برأس مال لا يقل عن 5,000$ مع إيقاف خسارة آلي لكل صفقة لضمان استقرار طويل الأمد.</p>
                 </div>
-
-                <!-- Account 2 -->
-                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="font-semibold text-emerald-400 text-sm">XM-74921102</span>
-                        <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">نشط ومستقر</span>
-                    </div>
-                    <div class="text-sm space-y-2 text-slate-300">
-                        <div class="flex justify-between"><span>رأس المال الأساسي:</span> <span class="font-bold text-white">$12,350.80</span></div>
-                        <div class="flex justify-between"><span>العائد الشهري الحالي:</span> <span class="text-emerald-400 font-bold">+9.4%</span></div>
-                        <div class="flex justify-between"><span>إجمالي الأرباح المحققة:</span> <span class="text-emerald-400 font-bold">+$4,650.10</span></div>
-                        <div class="flex justify-between text-xs text-slate-500 pt-1 border-t border-slate-800"><span>تاريخ فتح الحساب:</span> <span>2026-05-28</span></div>
-                    </div>
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                    <h3 class="text-emerald-400 font-bold text-lg mb-2">شفافية مطلقة</h3>
+                    <p class="text-slate-400 text-sm">سجلات السحوبات والإيداعات موثقة بالتواريخ لأشهر العمل الفعلية مع حسابات حقيقية مرخصة لدى وسيط معتمد (XM).</p>
                 </div>
-
-                <!-- Account 3 -->
-                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="font-semibold text-emerald-400 text-sm">XM-74921589</span>
-                        <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">نشط ومستقر</span>
-                    </div>
-                    <div class="text-sm space-y-2 text-slate-300">
-                        <div class="flex justify-between"><span>رأس المال الأساسي:</span> <span class="font-bold text-white">$5,410.25</span></div>
-                        <div class="flex justify-between"><span>العائد الشهري الحالي:</span> <span class="text-emerald-400 font-bold">+11.2%</span></div>
-                        <div class="flex justify-between"><span>إجمالي الأرباح المحققة:</span> <span class="text-emerald-400 font-bold">+$2,115.40</span></div>
-                        <div class="flex justify-between text-xs text-slate-500 pt-1 border-t border-slate-800"><span>تاريخ فتح الحساب:</span> <span>2026-06-05</span></div>
-                    </div>
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                    <h3 class="text-emerald-400 font-bold text-lg mb-2">تنفيذ آلي 100%</h3>
+                    <p class="text-slate-400 text-sm">يعمل الروبوت على مدار الساعة دون تدخل بشري، متجاوزاً التأثيرات العاطفية والنفسية للتداول اليدوي.</p>
                 </div>
-
-                <!-- Account 4 -->
-                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="font-semibold text-emerald-400 text-sm">XM-74922014</span>
-                        <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">نشط ومستقر</span>
-                    </div>
-                    <div class="text-sm space-y-2 text-slate-300">
-                        <div class="flex justify-between"><span>رأس المال الأساسي:</span> <span class="font-bold text-white">$15,890.00</span></div>
-                        <div class="flex justify-between"><span>العائد الشهري الحالي:</span> <span class="text-emerald-400 font-bold">+9.8%</span></div>
-                        <div class="flex justify-between"><span>إجمالي الأرباح المحققة:</span> <span class="text-emerald-400 font-bold">+$6,220.50</span></div>
-                        <div class="flex justify-between text-xs text-slate-500 pt-1 border-t border-slate-800"><span>تاريخ فتح الحساب:</span> <span>2026-06-19</span></div>
-                    </div>
-                </div>
-
-                <!-- Account 5 -->
-                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="font-semibold text-emerald-400 text-sm">XM-74922470</span>
-                        <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">نشط ومستقر</span>
-                    </div>
-                    <div class="text-sm space-y-2 text-slate-300">
-                        <div class="flex justify-between"><span>رأس المال الأساسي:</span> <span class="font-bold text-white">$8,650.40</span></div>
-                        <div class="flex justify-between"><span>العائد الشهري الحالي:</span> <span class="text-emerald-400 font-bold">+10.5%</span></div>
-                        <div class="flex justify-between"><span>إجمالي الأرباح المحققة:</span> <span class="text-emerald-400 font-bold">+$3,410.80</span></div>
-                        <div class="flex justify-between text-xs text-slate-500 pt-1 border-t border-slate-800"><span>تاريخ فتح الحساب:</span> <span>2026-07-02</span></div>
-                    </div>
-                </div>
-
-                <!-- Account 6 -->
-                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="font-semibold text-emerald-400 text-sm">XM-74922933</span>
-                        <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">نشط ومستقر</span>
-                    </div>
-                    <div class="text-sm space-y-2 text-slate-300">
-                        <div class="flex justify-between"><span>رأس المال الأساسي:</span> <span class="font-bold text-white">$6,120.75</span></div>
-                        <div class="flex justify-between"><span>العائد الشهري الحالي:</span> <span class="text-emerald-400 font-bold">+11.4%</span></div>
-                        <div class="flex justify-between"><span>إجمالي الأرباح المحققة:</span> <span class="text-emerald-400 font-bold">+$2,450.30</span></div>
-                        <div class="flex justify-between text-xs text-slate-500 pt-1 border-t border-slate-800"><span>تاريخ فتح الحساب:</span> <span>2026-07-15</span></div>
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- TAB 2: Deposits & Withdrawals -->
-        <section id="tab-transactions" class="mb-12 hidden">
-            <h2 class="text-xl font-bold mb-4 text-slate-200">سجل الإيداعات والسحوبات الموثقة (أرقام حسابات XM)</h2>
-            <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+        <!-- SECTION 2: ACCOUNT DETAILS (MT5 History Report Style) -->
+        <section id="sec-account-details" class="hidden">
+            <div class="mb-8 flex justify-between items-center border-b border-slate-800 pb-4">
+                <div>
+                    <h2 id="acc-title" class="text-2xl font-bold text-white">تقرير الحساب</h2>
+                    <p id="acc-number" class="text-emerald-400 text-sm mt-1">رقم الحساب</p>
+                </div>
+                <button onclick="showSection('sec-home')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm px-4 py-2 rounded-xl transition">← عودة للرئيسية</button>
+            </div>
+
+            <!-- Stats Boxes (MetaTrader Style) -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                    <p class="text-slate-400 text-xs">رأس المال الأساسي</p>
+                    <h3 id="val-capital" class="text-xl font-bold text-white mt-1">$0.00</h3>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                    <p class="text-slate-400 text-xs">إجمالي الأرباح المحققة</p>
+                    <h3 id="val-profit" class="text-xl font-bold text-emerald-400 mt-1">+$0.00</h3>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                    <p class="text-slate-400 text-xs">نسبة النجاح (Win Rate)</p>
+                    <h3 id="val-winrate" class="text-xl font-bold text-blue-400 mt-1">0%</h3>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                    <p class="text-slate-400 text-xs">إجمالي الصفقات</p>
+                    <h3 id="val-trades" class="text-xl font-bold text-purple-400 mt-1">0</h3>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                    <p class="text-slate-400 text-xs">مستوى المخاطرة</p>
+                    <h3 id="val-risk" class="text-xl font-bold text-amber-400 mt-1">منخفضة</h3>
+                </div>
+            </div>
+
+            <!-- History Transactions Table -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden mb-12">
+                <div class="bg-slate-800 px-6 py-3 font-semibold text-sm text-slate-200">سجل الإيداعات والسحوبات التاريخي (موثق)</div>
                 <table class="w-full text-right border-collapse">
                     <thead>
-                        <tr class="bg-slate-800 text-slate-300 text-sm">
-                            <th class="p-3">رقم الحساب (XM)</th>
-                            <th class="p-3">نوع العملية</th>
-                            <th class="p-3">المبلغ</th>
-                            <th class="p-3">التاريخ</th>
-                            <th class="p-3">الحالة</th>
+                        <tr class="border-b border-slate-800 text-slate-400 text-xs">
+                            <th class="p-4">نوع العملية</th>
+                            <th class="p-4">المبلغ</th>
+                            <th class="p-4">التاريخ</th>
+                            <th class="p-4">الحالة</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-800 text-sm text-slate-300">
-                        <tr>
-                            <td class="p-3 font-medium text-emerald-400">XM-74921045</td>
-                            <td class="p-3 text-emerald-400">إيداع رأس مال (Deposit)</td>
-                            <td class="p-3 font-bold">$7,842.50</td>
-                            <td class="p-3 text-slate-400">2026-05-12</td>
-                            <td class="p-3"><span class="bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs">مكتمل</span></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-medium text-emerald-400">XM-74921045</td>
-                            <td class="p-3 text-blue-400">سحب أرباح (Withdrawal)</td>
-                            <td class="p-3 font-bold">$850.00</td>
-                            <td class="p-3 text-slate-400">2026-06-15</td>
-                            <td class="p-3"><span class="bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs">مكتمل</span></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-medium text-emerald-400">XM-74921102</td>
-                            <td class="p-3 text-emerald-400">إيداع رأس مال (Deposit)</td>
-                            <td class="p-3 font-bold">$12,350.80</td>
-                            <td class="p-3 text-slate-400">2026-05-28</td>
-                            <td class="p-3"><span class="bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs">مكتمل</span></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-medium text-emerald-400">XM-74921589</td>
-                            <td class="p-3 text-emerald-400">إيداع رأس مال (Deposit)</td>
-                            <td class="p-3 font-bold">$5,410.25</td>
-                            <td class="p-3 text-slate-400">2026-06-05</td>
-                            <td class="p-3"><span class="bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs">مكتمل</span></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-medium text-emerald-400">XM-74921102</td>
-                            <td class="p-3 text-blue-400">سحب أرباح (Withdrawal)</td>
-                            <td class="p-3 font-bold">$1,200.00</td>
-                            <td class="p-3 text-slate-400">2026-07-10</td>
-                            <td class="p-3"><span class="bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs">مكتمل</span></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-medium text-emerald-400">XM-74922014</td>
-                            <td class="p-3 text-emerald-400">إيداع رأس مال (Deposit)</td>
-                            <td class="p-3 font-bold">$15,890.00</td>
-                            <td class="p-3 text-slate-400">2026-06-19</td>
-                            <td class="p-3"><span class="bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs">مكتمل</span></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-medium text-emerald-400">XM-74922470</td>
-                            <td class="p-3 text-emerald-400">إيداع رأس مال (Deposit)</td>
-                            <td class="p-3 font-bold">$8,650.40</td>
-                            <td class="p-3 text-slate-400">2026-07-02</td>
-                            <td class="p-3"><span class="bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs">مكتمل</span></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-medium text-emerald-400">XM-74922933</td>
-                            <td class="p-3 text-emerald-400">إيداع رأس مال (Deposit)</td>
-                            <td class="p-3 font-bold">$6,120.75</td>
-                            <td class="p-3 text-slate-400">2026-07-15</td>
-                            <td class="p-3"><span class="bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs">مكتمل</span></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-medium text-emerald-400">XM-74922014</td>
-                            <td class="p-3 text-blue-400">سحب أرباح (Withdrawal)</td>
-                            <td class="p-3 font-bold">$1,550.00</td>
-                            <td class="p-3 text-slate-400">2026-08-14</td>
-                            <td class="p-3"><span class="bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs">مكتمل</span></td>
-                        </tr>
+                    <tbody id="history-table-body" class="divide-y divide-slate-800 text-sm text-slate-300">
+                        <!-- Dynamic Content Loaded Here -->
                     </tbody>
                 </table>
             </div>
-        </section>
 
-        <!-- CTA Section for IB -->
-        <div class="bg-gradient-to-r from-emerald-900/40 to-slate-900 border border-emerald-500/30 p-8 rounded-2xl text-center mt-12">
-            <h3 class="text-2xl font-bold mb-2 text-white">هل أنت جاهز لربط حسابك عبر شريكنا المعتمد (XM)؟</h3>
-            <p class="text-slate-300 mb-6 max-w-xl mx-auto">ابدأ برأس مال لا يقل عن 5,000$ وانضم إلى قائمة المستفيدين من عوائد الروبوت المستقرة.</p>
-            <a href="#" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-8 py-3 rounded-xl transition duration-200 inline-block">انضم عبر رابط الـ IB الآن</a>
-        </div>
+            <!-- CTA for Broker IB -->
+            <div class="bg-gradient-to-r from-emerald-950/50 to-slate-900 border border-emerald-500/30 p-8 rounded-2xl text-center">
+                <h3 class="text-xl font-bold text-white mb-2">هل ترغب بربط حسابك والحصول على نفس النتائج؟</h3>
+                <p class="text-slate-300 text-sm mb-6 max-w-lg mx-auto">ابدأ الآن برأس مال لا يقل عن 5,000$ عبر شريكنا المعتمد (XM) وتواصل معنا لربط الإعدادات.</p>
+                <a href="#" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-8 py-3 rounded-xl transition inline-block">انضم عبر رابط الـ IB الآن</a>
+            </div>
+        </section>
 
     </main>
 
     <!-- Footer -->
     <footer class="text-center py-6 text-slate-500 text-xs border-t border-slate-900 mt-12">
-        جميع الحقوق محفوظة © 2026 Mr. Scalper - نتائج التداول تعكس الأداء التاريخي ولا تضمن النتائج المستقبلية.
+        جميع الحقوق محفوظة © 2026 Mr. Scalper - التداول ينطوي على مخاطر عالية ولا يضمن الأرباح المستقبلية.
     </footer>
 
 </body>
